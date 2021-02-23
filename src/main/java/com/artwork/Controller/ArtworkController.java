@@ -39,7 +39,7 @@ public class ArtworkController {
     @DeleteMapping(value = "/{artwork_id}")
     public ResponseEntity<String> deleteArtwork(@PathVariable(value="artwork_id") Long artworkID){
         artworkService.deleteArtwork(artworkID);
-        return new ResponseEntity<>(artworkID+" id number is deleted!",HttpStatus.OK);
+        return new ResponseEntity<>(artworkID+" id number is deleted!!!",HttpStatus.OK);
     }
 
     @GetMapping("/all")
