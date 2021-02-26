@@ -10,5 +10,5 @@ public class ArtworkDTO {
 
     private String imagePath;
 
-    private UserDTO user;
+    private ArtistDTO user;
 }

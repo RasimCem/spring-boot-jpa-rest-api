@@ -24,5 +24,5 @@ public class ArtworkDO {
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="user_id")
-    private UserDO user;
+    private ArtistDO user;
 }

@@ -1,10 +1,10 @@
 package com.artwork.Service;
 
 import com.artwork.Model.ArtworkDO;
-import com.artwork.Model.UserDO;
+import com.artwork.Model.ArtistDO;
 import com.artwork.Repository.ArtworkRepository;
 import com.artwork.dto.ArtworkDTO;
-import com.artwork.dto.UserDTO;
+import com.artwork.dto.ArtistDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +33,15 @@ public class ArtworkService implements IArtworkService {
             existingArtwork.get().setName(artwork.getName());
             existingArtwork.get().setDescription(artwork.getDescription());
             existingArtwork.get().setImagePath(artwork.getImagePath());
-            UserDO user = existingArtwork.get().getUser();
+            ArtistDO user = existingArtwork.get().getUser();
             if(user==null){
                 return null;
             }
             artworkRepository.save(existingArtwork.get());
 
             ArtworkDTO artworkDTO = new ModelMapper().map(existingArtwork.get(),ArtworkDTO.class);
-            UserDTO userDTO = new ModelMapper().map(existingArtwork.get().getUser(),UserDTO.class);
-            artworkDTO.setUser(userDTO);
+            ArtistDTO artistDTO = new ModelMapper().map(existingArtwork.get().getUser(), ArtistDTO.class);
+            artworkDTO.setUser(artistDTO);
             return artworkDTO;
         }
         return null;

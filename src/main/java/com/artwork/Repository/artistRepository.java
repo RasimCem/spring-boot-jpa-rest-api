@@ -1,9 +1,12 @@
 package com.artwork.Repository;
 
-import com.artwork.Model.UserDO;
+import com.artwork.Model.ArtistDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface UserRepository extends JpaRepository <UserDO,Long>{
+public interface artistRepository extends JpaRepository <ArtistDO,Long>{
+
 }
