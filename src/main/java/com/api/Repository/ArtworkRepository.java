@@ -1,6 +1,6 @@
-package com.artwork.Repository;
+package com.api.Repository;
 
-import com.artwork.Model.ArtworkDO;
+import com.api.Model.ArtworkDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

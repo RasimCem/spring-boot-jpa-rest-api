@@ -1,10 +1,10 @@
-package com.artwork.Service;
+package com.api.Service;
 
-import com.artwork.Model.ArtworkDO;
-import com.artwork.dto.ArtworkDTO;
+import com.api.Model.ArtworkDO;
+import com.api.dto.ArtworkDTO;
 
 public interface IArtworkService {
-    public ArtworkDO createArtwork(ArtworkDO artwork);
+    public ArtworkDTO createArtwork(ArtworkDO artwork);
     public ArtworkDTO updateArtwork(ArtworkDO artwork);
     public void deleteArtwork(long artworkId);
     public ArtworkDTO getArtwork(long artworkId);

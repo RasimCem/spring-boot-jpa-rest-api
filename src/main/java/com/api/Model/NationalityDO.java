@@ -1,4 +1,4 @@
-package com.artwork.Model;
+package com.api.Model;
 
 import lombok.Data;
 

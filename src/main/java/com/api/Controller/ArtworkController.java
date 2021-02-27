@@ -1,15 +1,14 @@
-package com.artwork.Controller;
+package com.api.Controller;
 
-import com.artwork.Model.ArtworkDO;
-import com.artwork.Service.ArtworkService;
-import com.artwork.dto.ArtworkDTO;
+import com.api.Service.ArtworkService;
+import com.api.Model.ArtworkDO;
+import com.api.dto.ArtworkDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value="/artwork")
@@ -24,9 +23,9 @@ public class ArtworkController {
         return new ResponseEntity<>(artwork,HttpStatus.OK);
     }
 
-    @PostMapping(value = "/",consumes = "application/json",produces="application/json")
-    public ResponseEntity<ArtworkDO> createArtwork(@RequestBody ArtworkDO artworkDO){
-        ArtworkDO createdArtwork = artworkService.createArtwork(artworkDO);
+    @PostMapping(value = "",consumes = "application/json",produces="application/json")
+    public ResponseEntity<ArtworkDTO> createArtwork(@RequestBody ArtworkDO artworkDO){
+        ArtworkDTO createdArtwork = artworkService.createArtwork(artworkDO);
         return new ResponseEntity<>(createdArtwork, HttpStatus.CREATED);
     }
     

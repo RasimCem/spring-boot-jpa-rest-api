@@ -1,10 +1,10 @@
-package com.artwork.Service;
+package com.api.Service;
 
-import com.artwork.Model.ArtworkDO;
-import com.artwork.Model.ArtistDO;
-import com.artwork.Repository.ArtworkRepository;
-import com.artwork.dto.ArtworkDTO;
-import com.artwork.dto.ArtistDTO;
+import com.api.Model.ArtworkDO;
+import com.api.Model.ArtistDO;
+import com.api.Repository.ArtworkRepository;
+import com.api.dto.ArtworkDTO;
+import com.api.dto.ArtistDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,10 @@ public class ArtworkService implements IArtworkService {
     private ArtworkRepository artworkRepository;
 
     @Override
-    public ArtworkDO createArtwork(ArtworkDO artwork) {
-        return artworkRepository.save(artwork);
+    public ArtworkDTO createArtwork(ArtworkDO artwork) {
+        ArtworkDO artworkDO = artworkRepository.save(artwork);
+        ArtworkDTO artworkDTO = new ModelMapper().map(artworkDO,ArtworkDTO.class);
+        return artworkDTO;
     }
 
     @Override
@@ -33,15 +35,20 @@ public class ArtworkService implements IArtworkService {
             existingArtwork.get().setName(artwork.getName());
             existingArtwork.get().setDescription(artwork.getDescription());
             existingArtwork.get().setImagePath(artwork.getImagePath());
-            ArtistDO user = existingArtwork.get().getUser();
-            if(user==null){
-                return null;
+
+            ArtistDO artist = artwork.getArtist();
+            if(artist!=null){
+                artist.setName(artwork.getArtist().getName());
+                artist.setSurname(artwork.getArtist().getSurname());
+                artist.setBirth_year(artwork.getArtist().getBirth_year());
+                artist.setDeath_year(artwork.getArtist().getDeath_year());
+                artist.setBiography(artwork.getArtist().getBiography());
+                artist.setImage_url(artwork.getArtist().getImage_url());
+                existingArtwork.get().setArtist(artist);
             }
             artworkRepository.save(existingArtwork.get());
 
             ArtworkDTO artworkDTO = new ModelMapper().map(existingArtwork.get(),ArtworkDTO.class);
-            ArtistDTO artistDTO = new ModelMapper().map(existingArtwork.get().getUser(), ArtistDTO.class);
-            artworkDTO.setUser(artistDTO);
             return artworkDTO;
         }
         return null;

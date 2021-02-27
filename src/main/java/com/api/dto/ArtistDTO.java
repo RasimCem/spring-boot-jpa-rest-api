@@ -1,12 +1,8 @@
-package com.artwork.dto;
+package com.api.dto;
 
-import com.artwork.Model.NationalityDO;
+import com.api.Model.NationalityDO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Data
 public class ArtistDTO {

@@ -1,18 +1,14 @@
-package com.artwork.Service;
+package com.api.Service;
 
-import com.artwork.Model.ArtistDO;
-import com.artwork.Model.ArtworkDO;
-import com.artwork.Model.NationalityDO;
-import com.artwork.Repository.artistRepository;
-import com.artwork.dto.ArtistDTO;
-import com.artwork.dto.ArtworkDTO;
+import com.api.Model.ArtistDO;
+import com.api.Model.NationalityDO;
+import com.api.dto.ArtistDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +16,7 @@ import java.util.Optional;
 public class ArtistService implements IArtistService {
 
     @Autowired
-    private artistRepository artistRepository;
+    private com.api.Repository.artistRepository artistRepository;
 
     @Override
     public ArtistDO createArtist(ArtistDO user) {

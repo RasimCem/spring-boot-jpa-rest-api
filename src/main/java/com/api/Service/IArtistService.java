@@ -1,7 +1,7 @@
-package com.artwork.Service;
+package com.api.Service;
 
-import com.artwork.Model.ArtistDO;
-import com.artwork.dto.ArtistDTO;
+import com.api.Model.ArtistDO;
+import com.api.dto.ArtistDTO;
 
 import java.util.List;
 

@@ -1,10 +1,8 @@
-package com.artwork.Repository;
+package com.api.Repository;
 
-import com.artwork.Model.ArtistDO;
+import com.api.Model.ArtistDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.Optional;
 
 @Repository
 public interface artistRepository extends JpaRepository <ArtistDO,Long>{

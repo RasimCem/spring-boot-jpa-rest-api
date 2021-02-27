@@ -1,4 +1,4 @@
-package com.artwork.Model;
+package com.api.Model;
 
 import lombok.Data;
 
@@ -22,7 +22,11 @@ public class ArtworkDO {
     @Column(nullable = false)
     private String imagePath;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id")
-    private ArtistDO user;
+    private int completion_year;
+
+    private int value;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="artist_id")
+    private ArtistDO artist;
 }

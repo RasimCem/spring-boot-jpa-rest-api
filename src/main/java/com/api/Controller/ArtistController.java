@@ -1,10 +1,8 @@
-package com.artwork.Controller;
+package com.api.Controller;
 
-import com.artwork.Model.ArtistDO;
-import com.artwork.Model.ArtworkDO;
-import com.artwork.Service.ArtistService;
-import com.artwork.dto.ArtistDTO;
-import com.artwork.dto.ArtworkDTO;
+import com.api.Model.ArtistDO;
+import com.api.Service.ArtistService;
+import com.api.dto.ArtistDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
