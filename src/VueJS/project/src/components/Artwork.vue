@@ -11,6 +11,7 @@
     <div class="container">
       <div class=" row justify-content-center">
         <div class="col col-sm-12 col-md-6 col-lg-4" v-for="artwork in artworks" :key="artwork.id">
+          <transition-group tag="div" class="animate__animated animate__slideInUp">
           <div class="card d-flex">
             <img
               class="card-img-top"
@@ -46,6 +47,7 @@
               >
             </div>
           </div>
+          </transition-group>
         </div>
       </div>
     </div>
@@ -70,7 +72,8 @@ export default {
                 axios.delete("http://127.0.0.1:8080/artwork/" + id).then((response) => {
                     console.log(response);
                 });
-                event.target.parentElement.parentElement.remove();
+                event.target.parentElement.parentElement.parentElement.className="animate__animated animate__bounceOutUp";
+                setTimeout(function(){    event.target.parentElement.parentElement.remove(); }, 1000);
         },
         updateArtwork(id){
              this.$router.push({path:"/artwork-update/"+id});

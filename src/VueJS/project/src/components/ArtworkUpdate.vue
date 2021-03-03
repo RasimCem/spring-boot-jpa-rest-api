@@ -35,15 +35,6 @@
                 placeholder="Enter Birth Year"
               />
 
-              <label for="exampleInputEmail1" class="mt-2">Image URL</label>
-              <input
-                v-model="artwork.imagePath"
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter Image URL"
-              />
               <label for="exampleFormControlTextarea1" class="mt-2"
                 >Description</label
               >
@@ -63,6 +54,19 @@
                     </option>
                     <!-- <option :value="0" >Add New Artist</option> -->
             </select>
+
+            <label for="exampleInputEmail1" class="mt-2">Current Image</label>
+            <img src="../assets/bg.jpg" alt="" style="display:block;width:250px;height:200px;border-radius:5px">
+
+          <label for="exampleInputEmail1" class="mt-2">Image URL</label>
+              <input
+                v-model="artwork.imagePath"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter Image URL"
+              />
 
             </div>
             <button

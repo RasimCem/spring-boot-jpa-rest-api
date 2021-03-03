@@ -37,14 +37,6 @@
                 id="exampleInputEmail1"
               />
 
-              <label for="exampleInputEmail1" class="mt-2">Image URL</label>
-              <input
-                v-model="artist.image_url"
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-              />
-
               <label for="exampleInputEmail1" class="mt-2">Country</label>
               <input
                 v-model="artist.nation.country"
@@ -68,6 +60,16 @@
                 id=""
                 rows="5"
               ></textarea>
+               <label for="exampleInputEmail1" class="mt-2">Current Image</label>
+               <img src="../assets/bg.jpg" alt="" style="display:block;width:250px;height:200px;border-radius:5px">
+
+              <label for="exampleInputEmail1" class="mt-2">Image URL</label>
+              <input
+                v-model="artist.image_url"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+              />
             </div>
             <button
               @click="updateArtist"
