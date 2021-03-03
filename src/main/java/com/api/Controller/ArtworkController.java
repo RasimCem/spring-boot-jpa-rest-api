@@ -29,16 +29,16 @@ public class ArtworkController {
         return new ResponseEntity<>(createdArtwork, HttpStatus.CREATED);
     }
     
-    @PutMapping(value="/",consumes="application/json",produces="application/json")
+    @PutMapping(value="",consumes="application/json",produces="application/json")
     public ResponseEntity<ArtworkDTO> updateArtwork(@RequestBody ArtworkDO artworkDO){
         ArtworkDTO updatedArtwork = artworkService.updateArtwork(artworkDO);
         return new ResponseEntity<>(updatedArtwork,HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/{artwork_id}")
-    public ResponseEntity<String> deleteArtwork(@PathVariable(value="artwork_id") Long artworkID){
-        artworkService.deleteArtwork(artworkID);
-        return new ResponseEntity<>(artworkID+" id number is deleted!!!",HttpStatus.OK);
+    public ResponseEntity<String> deleteArtwork(@PathVariable(value="artwork_id") Long artwork_id){
+        artworkService.deleteArtwork(artwork_id);
+        return new ResponseEntity<>(artwork_id+" id number is deleted!!!",HttpStatus.OK);
     }
 
     @GetMapping("/all")

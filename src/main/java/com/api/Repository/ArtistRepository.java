@@ -1,14 +1,14 @@
 package com.api.Repository;
 
 import com.api.Model.ArtistDO;
-import com.api.Model.ArtworkDO;
+import com.api.dto.ArtistDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ArtworkRepository extends JpaRepository<ArtworkDO,Long> {
-
+public interface ArtistRepository extends JpaRepository <ArtistDO,Long>{
+    //Optional<ArtistDO> findByArtist(ArtistDTO artistDTO);
+    Optional<ArtistDO> findByName(String name);
 }

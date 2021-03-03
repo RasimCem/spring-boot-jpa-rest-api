@@ -3,6 +3,8 @@ import Artist from '../components/Artist.vue'
 import Artwork from '../components/Artwork.vue'
 import ArtistCreate from '../components/ArtistCreate.vue'
 import ArtistUpdate from '../components/ArtistUpdate.vue'
+import ArtworkCreate from '../components/ArtworkCreate.vue'
+import ArtworkUpdate from '../components/ArtworkUpdate.vue'
 const routes = [
   {
     path: '/artist',
@@ -23,6 +25,16 @@ const routes = [
     path: '/artist-update/:id',
     name: 'ArtistUpdate',
     component: ArtistUpdate
+  },
+  {
+    path: '/artwork-create',
+    name: 'ArtworkCreate',
+    component: ArtworkCreate
+  },
+  {
+    path: '/artwork-update/:id',
+    name: 'ArtworkUpdate',
+    component: ArtworkUpdate
   },
   
 ]

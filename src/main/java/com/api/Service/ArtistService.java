@@ -2,6 +2,7 @@ package com.api.Service;
 
 import com.api.Model.ArtistDO;
 import com.api.Model.NationalityDO;
+import com.api.Repository.ArtistRepository;
 import com.api.dto.ArtistDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -16,7 +17,7 @@ import java.util.Optional;
 public class ArtistService implements IArtistService {
 
     @Autowired
-    private com.api.Repository.artistRepository artistRepository;
+    private ArtistRepository artistRepository;
 
     @Override
     public ArtistDO createArtist(ArtistDO user) {
@@ -42,7 +43,8 @@ public class ArtistService implements IArtistService {
 
     @Override
     public ArtistDTO updateArtist(ArtistDO artist) {
-        Optional<ArtistDO> artistDO = artistRepository.findById(artist.getId());
+        long id =artist.getId();
+        Optional<ArtistDO> artistDO = artistRepository.findById(id);
         if(artistDO.isPresent()){
             artistDO.get().setName(artist.getName());
             artistDO.get().setSurname(artist.getSurname());

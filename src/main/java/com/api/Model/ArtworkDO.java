@@ -26,7 +26,7 @@ public class ArtworkDO {
 
     private int value;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="artist_id")
     private ArtistDO artist;
 }

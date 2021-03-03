@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class ArtistDO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private long id;
 
     @Column(nullable=false)

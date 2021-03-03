@@ -2,6 +2,7 @@ package com.api.Service;
 
 import com.api.Model.ArtworkDO;
 import com.api.Model.ArtistDO;
+import com.api.Repository.ArtistRepository;
 import com.api.Repository.ArtworkRepository;
 import com.api.dto.ArtworkDTO;
 import com.api.dto.ArtistDTO;
@@ -20,11 +21,23 @@ public class ArtworkService implements IArtworkService {
     @Autowired
     private ArtworkRepository artworkRepository;
 
+    @Autowired
+    private ArtistRepository artistRepository;
+
     @Override
     public ArtworkDTO createArtwork(ArtworkDO artwork) {
-        ArtworkDO artworkDO = artworkRepository.save(artwork);
-        ArtworkDTO artworkDTO = new ModelMapper().map(artworkDO,ArtworkDTO.class);
-        return artworkDTO;
+
+        ArtistDO artist = artwork.getArtist();
+        String name = artist.getName();
+        Optional<ArtistDO> isExist = artistRepository.findByName(name);
+        if(isExist.isPresent()){
+            artwork.setArtist(isExist.get());
+            ArtworkDO artworkDO = artworkRepository.save(artwork);
+            ArtworkDTO artworkDTO = new ModelMapper().map(artworkDO,ArtworkDTO.class);
+            return artworkDTO;
+        }
+        return null;
+
     }
 
     @Override
@@ -37,26 +50,21 @@ public class ArtworkService implements IArtworkService {
             existingArtwork.get().setImagePath(artwork.getImagePath());
 
             ArtistDO artist = artwork.getArtist();
-            if(artist!=null){
-                artist.setName(artwork.getArtist().getName());
-                artist.setSurname(artwork.getArtist().getSurname());
-                artist.setBirth_year(artwork.getArtist().getBirth_year());
-                artist.setDeath_year(artwork.getArtist().getDeath_year());
-                artist.setBiography(artwork.getArtist().getBiography());
-                artist.setImage_url(artwork.getArtist().getImage_url());
-                existingArtwork.get().setArtist(artist);
+            String name = artist.getName();
+            Optional<ArtistDO> isExist = artistRepository.findByName(name);
+            if(isExist.isPresent()){
+                artwork.setArtist(isExist.get());
+                artworkRepository.save(artwork);
+                ArtworkDTO artworkDTO = new ModelMapper().map(existingArtwork.get(),ArtworkDTO.class);
+                return artworkDTO;
             }
-            artworkRepository.save(existingArtwork.get());
-
-            ArtworkDTO artworkDTO = new ModelMapper().map(existingArtwork.get(),ArtworkDTO.class);
-            return artworkDTO;
         }
         return null;
     }
 
     @Override
-    public void deleteArtwork(long artworkId) {
-        Optional<ArtworkDO> artwork = artworkRepository.findById(artworkId);
+    public void deleteArtwork(Long artwork_id) {
+        Optional<ArtworkDO> artwork = artworkRepository.findById(artwork_id);
         if(artwork.isPresent()){
             artworkRepository.delete(artwork.get());
         }

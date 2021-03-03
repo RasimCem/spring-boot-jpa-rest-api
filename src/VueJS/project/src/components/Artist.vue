@@ -8,7 +8,7 @@
       <router-view></router-view>
     </div>
     <hr />
-    <div class="container">
+    <div class="container px-5">
       <div class=" row justify-content-center">
         <div class="col col-sm-12 col-md-6 col-lg-4" v-for="artist in artists" :key="artist.id">
           <div class="card d-flex">
@@ -24,20 +24,20 @@
                 {{ artist.birth_year }} - {{ artist.death_year }}
               </p>
               <p class="card-text small">{{ artist.biography }}</p>
-              <p class="card-text small">
+              <p class="card-text small" v-if="artist.nation">
                 {{ artist.nation.country }}/{{ artist.nation.city }}
               </p>
               <a
                 class="btn btn-success btn-sm m-1"
                 @click="updateArtist(artist.id)"
                 style="display:block"
-                >UPDATE</a
+                >Update</a
               >
               <a
                 class="btn btn-danger btn-sm m-1"
                 @click="deleteArtist(artist.id, $event)"
                 style="display:block"
-                >DELETE</a
+                >Delete</a
               >
             </div>
           </div>
@@ -86,10 +86,11 @@ export default {
   box-shadow: 2px 3px 10px 2px black;
 }
 .card img{
-  border-radius: 40% !important;
+  border-radius: 50% !important;
 }
 .card{
-  background-color:#f8c4c4 !important;
+  background-color:#f0f0f0 !important;
   margin:15px;
+border:none;
 }
 </style>

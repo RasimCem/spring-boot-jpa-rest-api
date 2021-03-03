@@ -11,6 +11,8 @@ import javax.persistence.OneToOne;
 @Data
 public class ArtworkDTO {
 
+    private Long id;
+
     private String name;
 
     private String description;

@@ -1,6 +1,6 @@
 <template>
       <div class="container w-75 bg-light mt-5 p-4">
-    <h3 class="pt-3 " style="text-align:center">Artist Update</h3>{{artist.id}}
+    <h3 class="pt-3 " style="text-align:center">Artist Update</h3>
     <hr />
     <div class="container m-5">
       <div class="row justify-content-md-center">
@@ -83,6 +83,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
         return{
@@ -101,13 +102,21 @@ export default {
         }
         }
     },
-    methods(){
-        // updateArtist(){
-
-        // }
+    methods:{
+        updateArtist(){
+            axios
+                .put("http://127.0.0.1:8080/artist/", this.artist)
+                .then((response) => {
+                console.log(response.data);
+                });
+                this.$router.push("/artist");
+        }
     },
     created(){
         this.artist.id = this.$route.params.id;
+        axios.get("http://127.0.0.1:8080/artist/"+this.artist.id).then((response) => {
+        this.artist = response.data;
+    });
     }
  }
 

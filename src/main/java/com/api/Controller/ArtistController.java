@@ -36,14 +36,14 @@ public class ArtistController {
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
 
-    @PutMapping(value="",consumes="application/json",produces="application/json")
+    @PutMapping(value="/",consumes = "application/json",produces = "application/json")
     public ResponseEntity<ArtistDTO> updateArtist(@RequestBody ArtistDO artistDO){
         ArtistDTO updatedArtist = artistService.updateArtist(artistDO);
         return new ResponseEntity<>(updatedArtist,HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "/{artist_id}")
-    public ResponseEntity<String> deleteArtwork(@PathVariable(value="artist_id") Long artist_id){
+    public ResponseEntity<String> deleteArtist(@PathVariable(value="artist_id") Long artist_id){
         artistService.deleteArtist(artist_id);
         return new ResponseEntity<>(artist_id+" id number is deleted!!!",HttpStatus.OK);
     }
