@@ -13,12 +13,14 @@
         <div class="col col-sm-12 col-md-6 col-lg-4" v-for="artwork in artworks" :key="artwork.id">
           <transition-group tag="div" class="animate__animated animate__slideInUp">
           <div class="card d-flex">
+            <router-link :to="'/artwork-detail/'+artwork.id">
             <img
               class="card-img-top"
               src="../assets/bg.jpg"
               alt="Card image cap"
               style="height:250px"
             />
+            </router-link>
             <div class="card-body">
               <h5 class="card-title">{{artwork.name}}</h5>
               <p class="card-text small">

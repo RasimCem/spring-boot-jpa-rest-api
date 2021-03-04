@@ -15,12 +15,13 @@
         <div class="col col-sm-12 col-md-6 col-lg-4" v-for="artist in artists" :key="artist.id">
           <transition-group tag="div" class="animate__animated animate__slideInUp">
           <div class="card d-flex">
-            <img
+            <router-link :to="'/artist-detail/'+artist.id"><img
               class="card-img-top"
               src="../assets/bg.jpg"
               alt="Card image cap"
               style="height:250px"
             />
+            </router-link>
             <div class="card-body">
               <h5 class="card-title">{{ artist.name }} {{ artist.surname }}</h5>
               <p class="card-text small">
