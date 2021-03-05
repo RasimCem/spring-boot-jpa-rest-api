@@ -2,9 +2,9 @@
   <div class="container w-75 bg-light mt-5 p-4">
     <h3 class="pt-3 " style="text-align:center">Create New Artist</h3>
     <hr />
-    <div class="container m-5">
-      <div class="row justify-content-md-center">
-        <div class="col-6">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
           <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Name</label>
@@ -124,7 +124,7 @@ export default {
         .then((response) => {
           console.log(response);
         });
-        this.$router.push("/artist");
+      this.$router.push("/artist");
     },
   },
 };

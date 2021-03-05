@@ -22,7 +22,7 @@
             <ul class="navbar-nav " style="margin-left:4rem ">
               <li class="nav-item">
                 <router-link
-                to="/artwork"
+                  to="/artwork"
                   class="nav-link "
                   aria-current="page"
                   href="#"
@@ -31,7 +31,7 @@
               </li>
               <li class="nav-item">
                 <router-link
-                to="/artist"
+                  to="/artist"
                   class="nav-link "
                   aria-current="page"
                   href="#"
@@ -42,7 +42,7 @@
           </div>
         </div>
       </nav>
-        <router-view></router-view>
+      <router-view></router-view>
     </div>
     <!-- Footer -->
     <footer class="bg-dark text-center text-lg-start">
@@ -59,9 +59,7 @@
 export default {
   name: "App",
   data() {
-    return {
-      
-    };
+    return {};
   },
 };
 </script>
@@ -98,8 +96,29 @@ export default {
     margin-left: 0% !important;
   }
 }
-
 body {
   font-family: "Montserrat", sans-serif;
+}
+
+.container.w-75 {
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: #f0f0f0 !important;
+  box-shadow: 2px 3px 10px 2px black;
+}
+
+.card {
+  background-color: #f0f0f0 !important;
+  margin: 15px;
+  border: none;
+}
+
+@media only screen and (max-width: 1350px) {
+.container.w-75{
+  width:100% !important;
+}
+}
+.card img {
+  border-radius: 15px !important;
 }
 </style>
