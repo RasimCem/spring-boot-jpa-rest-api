@@ -12,4 +12,4 @@ spring:
     driverClassName: org.postgresql.Driver
 java:
   runtime:
-    version: 11
+    version: 8
