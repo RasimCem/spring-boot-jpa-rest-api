@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(uniqueConstraints={
-        @UniqueConstraint(columnNames = {"name", "surname"})
+        @UniqueConstraint(columnNames = {"name", "surname","id"})
 },name = "artist")
 public class ArtistDO {
     @Id
@@ -25,6 +25,7 @@ public class ArtistDO {
 
     private int death_year;
 
+    @Column(columnDefinition="TEXT")
     private String biography;
 
     private String image_url;
