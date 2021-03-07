@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/artwork")
+@CrossOrigin(origins = "*")
 public class ArtworkController {
 
     @Autowired
