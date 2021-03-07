@@ -44,3 +44,8 @@ This application is an example of simple rest API. In the application, popular a
 ```
     mvn spring-boot:run
 ```
+---
+### Heroku
+```
+    https://artwork-app.herokuapp.com/artwork
+```
