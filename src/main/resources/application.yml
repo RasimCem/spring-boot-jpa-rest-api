@@ -1,12 +1,15 @@
 spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
-    database: POSTGRESQL
-    show-sql: true
     hibernate:
       ddl-auto: update
-  datasource:
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/artwork
-    username: postgres
-    password: 123456
-    driverClassName: org.postgresql.Driver
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
