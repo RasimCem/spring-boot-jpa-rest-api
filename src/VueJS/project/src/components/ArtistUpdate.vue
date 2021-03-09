@@ -111,7 +111,7 @@ export default {
   methods: {
     updateArtist() {
       axios
-        .put("http://127.0.0.1:8080/artist/", this.artist)
+        .put("https://artwork-app.herokuapp.com/artist/", this.artist)
         .then((response) => {
           console.log(response.data);
         });
@@ -121,7 +121,7 @@ export default {
   created() {
     this.artist.id = this.$route.params.id;
     axios
-      .get("http://127.0.0.1:8080/artist/" + this.artist.id)
+      .get("https://artwork-app.herokuapp.com/artist/" + this.artist.id)
       .then((response) => {
         this.artist = response.data;
       });

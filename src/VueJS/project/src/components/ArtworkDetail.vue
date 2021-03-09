@@ -41,7 +41,7 @@ export default {
   },
   created() {
     this.id = this.$route.params.id;
-    axios.get("http://127.0.0.1:8080/artwork/" + this.id).then((response) => {
+    axios.get("https://artwork-app.herokuapp.com/artwork/" + this.id).then((response) => {
       this.artwork = response.data;
     });
   },

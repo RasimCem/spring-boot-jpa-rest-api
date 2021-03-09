@@ -54,25 +54,28 @@
               >
               )
               <select
+                v-model="selected"
                 class="custom-select custom-select-sm"
                 style="display:block;width:100%"
+                required
               >
+                <option disabled value="">Please select one</option>
                 <option
-                  :value="artwork.artist"
+                  :value="artist"
                   v-for="artist in artists"
                   :key="artist.id"
                   v-bind:selected="artist.id == artwork.artist.id"
                 >
-                  {{ artist.name }} {{ artist.surname }} 
+                  {{ artist.name }} {{ artist.surname }}
                 </option>
               </select>
+
               <label for="exampleInputEmail1" class="mt-2">Current Image</label>
               <img
                 :src="artwork.imagePath"
                 alt=""
                 style="display:block;width:250px;height:200px;border-radius:5px"
               />
-
               <label for="exampleInputEmail1" class="mt-2">Image URL</label>
               <input
                 v-model="artwork.imagePath"
@@ -116,14 +119,16 @@ export default {
           image_url: "",
         },
       },
-      artists: []
+      artists: [],
+      selected: "",
     };
   },
   methods: {
     updateArtwork() {
       this.artwork.artist = this.selected;
+      console.log(this.artwork.artist);
       axios
-        .put("http://127.0.0.1:8080/artwork/", this.artwork)
+        .put("https://artwork-app.herokuapp.com/artwork/", this.artwork)
         .then((response) => {
           console.log(response.data);
         });
@@ -133,13 +138,16 @@ export default {
   created() {
     this.artwork.id = this.$route.params.id;
     axios
-      .get("http://127.0.0.1:8080/artwork/" + this.artwork.id)
+      .get("https://artwork-app.herokuapp.com/artwork/" + this.artwork.id)
       .then((response) => {
         this.artwork = response.data;
       });
-    axios.get("http://127.0.0.1:8080/artist/all").then((response) => {
+    axios.get("https://artwork-app.herokuapp.com/artist/all").then((response) => {
       this.artists = response.data;
     });
   },
+  computed: {
+
+  }
 };
 </script>

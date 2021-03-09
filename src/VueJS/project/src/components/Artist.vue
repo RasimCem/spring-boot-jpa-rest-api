@@ -71,15 +71,15 @@ export default {
     };
   },
   created() {
-    axios.get("http://127.0.0.1:8080/artist/all").then((response) => {
+    axios.get("https://artwork-app.herokuapp.com/artist/all").then((response) => {
       this.artists = response.data;
-      console.log(response.data);
+      //console.log(response.data);
     });
   },
   methods: {
     deleteArtist(id, event) {
       console.log(id);
-      axios.delete("http://127.0.0.1:8080/artist/" + id).then((response) => {
+      axios.delete("https://artwork-app.herokuapp.com/artist/" + id).then((response) => {
         console.log(response);
       });
       event.target.parentElement.parentElement.parentElement.className =

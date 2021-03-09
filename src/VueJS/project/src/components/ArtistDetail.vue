@@ -73,10 +73,10 @@ import axios from "axios";
 export default {
   created() {
     this.id = this.$route.params.id;
-    axios.get("http://127.0.0.1:8080/artist/" + this.id).then((response) => {
+    axios.get("https://artwork-app.herokuapp.com/artist/" + this.id).then((response) => {
       this.artist = response.data;
     });
-    axios.get("http://127.0.0.1:8080/artwork/all").then((response) => {
+    axios.get("https://artwork-app.herokuapp.com/artwork/all").then((response) => {
       response.data.forEach((element) => {
         if (element.artist.id == this.artist.id) {
           this.artworks.push(element);

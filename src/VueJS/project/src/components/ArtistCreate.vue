@@ -120,7 +120,7 @@ export default {
   methods: {
     createArtist() {
       axios
-        .post("http://127.0.0.1:8080/artist", this.artist)
+        .post("https://artwork-app.herokuapp.com/artist", this.artist)
         .then((response) => {
           console.log(response);
         });
